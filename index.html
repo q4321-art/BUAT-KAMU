@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Bucin 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Pacifico', cursive;
+      overflow: hidden;
+      background-color: #fff0f5;
+      color: #d63384;
+    }
+
+    .container {
+      display: flex;
+      width: 500vw;
+      height: 100vh;
+      transition: transform 1s ease-in-out;
+    }
+
+    section {
+      width: 100vw;
+      height: 100vh;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      transition: all 1s ease;
+    }
+
+    h1, h2, p {
+      margin: 10px;
+      text-align: center;
+    }
+
+    button {
+      background-color: #ff69b4;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      font-size: 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .photos-grid div {
+      display: flex;
+      justify-content: center;
+    }
+
+    .photos-grid img {
+      width: 100%;
+      max-width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .photos-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .penutup h1 {
+      animation: love 2s infinite ease-in-out;
+    }
+
+    @keyframes love {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); color: hotpink; }
+    }
+
+    @media (max-width: 1024px) {
+      .photos-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .photos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .photos-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="slider">
+    <!-- Halaman 1 -->
+    <section style="background: #ffe4ec;">
+      <h1>Hai Sayang! 💕</h1>
+      <p>Website ini aku buat khusus buat kamu 😚</p>
+      <button onclick="nextSlide()">Lanjut ➡️</button>
+    </section>
+
+    <!-- Halaman 2 -->
+    <section style="background: #fff0f5;">
+      <h2>Kamu Itu Spesial 😊💌</h2>
+      <p>Aku cuma mau bilang... Kamu yang terbaik. makasih yah udah mau menrima aku yang umurnya lebih tua dari kamu,dan makasih juga yah udah mau menerima aku di dalam hati kamu,dan Makasih udah hadir dalam hidupku. 🥰</p>
+      <button onclick="nextSlide()">Lanjut ➡️</button>
+    </section>
+
+    <!-- Halaman 3 - Galeri 5 Kolom -->
+    <section style="background: #ffe6f0;">
+      <h2>Album Kita 📸</h2>
+      <div class="photos-grid">
+        <div><img src="Gambar WhatsApp 2025-04-15 pukul 00.57.48_9d2d8d2a.jpg" alt="Foto 1"></div>
+        <div><img src="Gambar WhatsApp 2025-04-15 pukul 00.57.48_e0420c70.jpg" alt="Foto 2"></div>
+        <div><img src="Gambar WhatsApp 2025-04-15 pukul 00.57.48_9d2d8d2a.jpg" alt="Foto 3"></div>
+        <div><img src="96..jpg" alt="Foto 4"></div>
+        <div><img src="106.jpg" alt="Foto 5"></div>
+      </div>
+      <button onclick="nextSlide()">Lanjut ➡️</button>
+    </section>
+
+    <!-- Halaman 4 -->
+    <section style="background: #fff5f9;">
+      <h2>Pesan Untuk Kamu 🌹</h2>
+      <p>Aku harap kita terus bareng, ngelewatin semua suka duka kita.AKU SAYANG KAMU, selalu. 😘💗</p>
+      <button onclick="nextSlide()">Lanjut ➡️</button>
+    </section>
+
+    <!-- Halaman 5 -->
+    <section class="penutup" style="background: #ffd6ea;">
+      <h1>I LOVE YOU 💖</h1>
+      <p>SELAMANYA,Cuma kamu yang ada di Hati aku 💘</p>
+    </section>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+
+    function nextSlide() {
+      const container = document.getElementById('slider');
+      const totalSlides = container.children.length;
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        container.style.transform = `translateX(-${currentSlide * 100}vw)`;
+      }
+    }
+  </script>
+</body>
+</html>
